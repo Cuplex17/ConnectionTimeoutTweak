@@ -1,0 +1,1 @@
+ConnectionTimeOutTweak is a mod to allow the client to configure the timeout period when connecting to a server. This is mainly to aid in the connection of servers which the client has a poor connection to or servers with resource packs needing to be loaded when connecting. 
