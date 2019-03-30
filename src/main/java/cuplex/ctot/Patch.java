@@ -14,7 +14,8 @@ public abstract class Patch
     }
 
     public static MethodNode findMethod(ClassNode node, String name, String srgName) {
-        name = getName(name, srgName);
+        //name = getName(name, srgName);
+        name = "func_176102_a";
 
         for(MethodNode method : node.methods) {
             if(name.equals(method.name)) {
@@ -25,13 +26,11 @@ public abstract class Patch
 
         return null;
     }
-
-
+/*
     public static String getName(String name, String srgName) {
         return CTOTMain.IS_DEOBFUSCATED ? name : srgName;
     }
-
-
+*/
     public static String getName(Class<?> clazz) {
         return StringUtils.replaceChars(clazz.getName(), '.', '/');
     }

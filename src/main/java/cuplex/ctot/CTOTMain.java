@@ -5,6 +5,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -14,9 +16,10 @@ public class CTOTMain {
     public static CTOTMain instance;
     public static final String modid = "ctot";
     public static final Logger logger = LogManager.getLogger(modid);
+/*
     public static final boolean IS_DEOBFUSCATED =
             (boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
-
+*/
 
     public CTOTMain() {
         instance = this;
@@ -25,6 +28,8 @@ public class CTOTMain {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientRegistries);
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, cuplex.ctot.ModConfig.spec);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -34,4 +39,6 @@ public class CTOTMain {
     private void clientRegistries(final FMLClientSetupEvent event) {
 
     }
+
+
 }
